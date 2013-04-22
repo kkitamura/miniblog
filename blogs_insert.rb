@@ -15,7 +15,7 @@ body_of_letter = cgi["body_of_letter"]
 
 print "<html><head></head><body>"
 client = Blog.new
-message = client.insert(title,body_of_letter)
+message = client.insert_blog(title,body_of_letter)
 
 #Display message about success or failed to insert new blog conttents
 

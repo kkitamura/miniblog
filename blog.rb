@@ -5,16 +5,17 @@ require "./connect.rb"
 
 class Blog < ConnectDb 
 
-  def select 
-    @board_infos = @client.query("SELECT *  FROM  miniblog_contents ") 
+  def select_blogs 
+   # @board_infos = @client.query("SELECT *  FROM  miniblog_contents ") 
+    @blog_articles.query("SELECT *  FROM  miniblog_contents ") 
   end 
   
 
-  def insert(title,body_of_letter)
+  def insert_blog(title,body_of_letter)
     if title==""  ||  body_of_letter == ""
       @message = "タイトル、本文を入力してください"
     else 
-      @client.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") 
+      @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") 
       @message = "登録完了"
     end 
   end
