@@ -16,10 +16,10 @@ print "<body>"
 
 
 print "<h1>ミニブログ</h1>"
-print "<form action=\"insert.rb\" method=\"post\">"
+print "<form action=\"blogs_insert.rb\" method=\"post\">"
 print "title<input type=\"text\" name=\"title\" value=\"\">"
 print "<br>"
-print "content <textarea name=\"body_of_letter\" valuse=\"\">"
+print "body of letter <textarea name=\"body_of_letter\" valuse=\"\">"
 print "</textarea>"
 print "<br>"
 print "<input type=\"submit\" value=\"add\">"

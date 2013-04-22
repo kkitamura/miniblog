@@ -17,5 +17,5 @@ message = client.insert(title,body_of_letter)
 
 print "#{message}"
 print "<br>"
-print "<a href =\"index.rb\">戻る</a>"
+print "<a href =\"blogs_controller.rb\">戻る</a>"
 print "</body></html>"
