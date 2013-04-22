@@ -76,5 +76,22 @@ end
 print "</body>"
 print "</html>"
  
+#from here is test
 
 
+class Test
+
+
+  def initialize(name)
+    @name = name 
+  end
+
+#attr_accessor :name
+end  
+
+
+
+a = Test.new("kotaro")
+puts a.name
+a.name = "kitamura"
+puts a.name

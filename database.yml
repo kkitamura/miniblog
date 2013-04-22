@@ -1,0 +1,7 @@
+database:
+  database: bbs
+  host: localhost 
+  username: blog
+  password: password
+
+
