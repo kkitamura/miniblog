@@ -17,7 +17,6 @@ class Blog < ConnectDb
       @client.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") 
       @message = "登録完了"
     end 
-
   end
 
 end 
