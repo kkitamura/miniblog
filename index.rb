@@ -15,11 +15,11 @@ print "<body>"
 
 
 
-print "<h1>プチブロ</h1>"
+print "<h1>ミニブログ</h1>"
 print "<form action=\"insert.rb\" method=\"post\">"
 print "title<input type=\"text\" name=\"title\" value=\"\">"
 print "<br>"
-print "content <textarea name=\"body\" valuse=\"\">"
+print "content <textarea name=\"body_of_letter\" valuse=\"\">"
 print "</textarea>"
 print "<br>"
 print "<input type=\"submit\" value=\"add\">"
@@ -35,10 +35,7 @@ print "<td>"
 print "title"
 print "</td>"
 print "<td>"
-print "body"
-print "</td>"
-print "<td>"
-print "delete"
+print "body of letter"
 print "</td>"
 print "</tr>"
 
@@ -63,12 +60,9 @@ board_infos.each do |board_infos|
   print "</td>"
 
   print "<td>"
-  print "#{board_infos["body"]}"
+  print "#{board_infos["body_of_letter"]}"
   print "</td>"
   
-  print "<td>"
-  print "<button>delete</button>"
-  print "</td>"
 end
 
 
@@ -76,22 +70,3 @@ end
 print "</body>"
 print "</html>"
  
-#from here is test
-
-
-class Test
-
-
-  def initialize(name)
-    @name = name 
-  end
-
-#attr_accessor :name
-end  
-
-
-
-a = Test.new("kotaro")
-puts a.name
-a.name = "kitamura"
-puts a.name

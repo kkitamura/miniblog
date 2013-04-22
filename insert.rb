@@ -9,11 +9,11 @@ print "Content-type: text/html\n\n"
 
 cgi = CGI.new
 title = cgi["title"]
-body = cgi["body"]
+body_of_letter = cgi["body_of_letter"]
 
 print "<html><head></head><body>"
 client = Blog.new
-message =   client.insert(title,body)
+message = client.insert(title,body_of_letter)
 
 print "#{message}"
 print "<br>"

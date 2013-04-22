@@ -1,7 +1,7 @@
 database:
-  database: bbs
+  database: miniblog
   host: localhost 
-  username: blog
-  password: password
+  username: miniblog
+  password: pass
 
 
