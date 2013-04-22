@@ -4,6 +4,9 @@ require 'mysql2'
 require "cgi.rb"
 require "./blog.rb"
 
+
+# Send form of new blog
+
 print "Content-type: text/html\n\n"
 
 
@@ -38,6 +41,9 @@ print "<td>"
 print "body of letter"
 print "</td>"
 print "</tr>"
+
+
+#Display blog contents already added
 
 client = Blog.new
 board_infos = client.select
