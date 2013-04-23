@@ -6,7 +6,6 @@ require "yaml"
 
 class ConnectDb
 
-
   def initialize
 
     yaml = YAML.load_file "database.yml"
