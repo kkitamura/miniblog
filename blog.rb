@@ -4,13 +4,11 @@ require "mysql2"
 require "./connect.rb"
 
 class Blog < ConnectDb 
-  private
   def select_blogs 
    # @board_infos = @client.query("SELECT *  FROM  miniblog_contents ") 
     @blog_articles.query("SELECT *  FROM  miniblog_contents ") 
   end 
   
-  public :select_blogs  
 
   def insert_blog(title,body_of_letter)
     if title==""  ||  body_of_letter == ""

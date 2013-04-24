@@ -1,7 +1,7 @@
 database:
   database: miniblog
   host: localhost 
-  username: miniblog
-  password: pass
+  username: root 
+  password: 
 
 
