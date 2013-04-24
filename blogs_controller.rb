@@ -6,9 +6,7 @@ require 'mysql2'
 require './blog.rb'
 
 get '/' do
-  client = Blog.new
-  client.select_blogs.each do |board_infos|   
-  end 
+  @client = Blog.new
   haml :index
 end
 
@@ -16,6 +14,7 @@ post '/' do
   "#{params[:title]}"
   blog_content = Blog.new
   blog_content.insert_blog(params[:title],params[:body_of_letter])
+  redirect '/'
 end
 
 __END__
@@ -46,4 +45,13 @@ __END__
             title 
           %td 
             body of letter
+
+        - @client.select_blogs.each do |board_infos|   
+          %tr
+            %td
+              #{board_infos["id"]} 
+            %td
+              #{board_infos["title"]} 
+            %td 
+              #{board_infos["body_of_letter"]} 
 
