@@ -8,7 +8,7 @@ class ConnectDb
 
   def initialize
 
-    yaml = YAML.load_file "database.yml"
+    yaml = YAML.load_file File.expand_path(File.dirname(__FILE__) + "/database.yml")
 
   
     @blog_articles = Mysql2::Client.new(:host => "#{yaml["database"]["host"]}", 

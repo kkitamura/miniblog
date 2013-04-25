@@ -1,7 +1,7 @@
 #!/usr/bin/ruby
 # -*- encoding: utf-8 -*-
 require 'mysql2'
-require './connect.rb'
+require File.expand_path(File.dirname(__FILE__) + '/connect.rb') 
 require 'sinatra'
 
 class Blog < ConnectDb 
@@ -12,8 +12,10 @@ class Blog < ConnectDb
 
   def insert_blog(title,body_of_letter)
     if title==""  ||  body_of_letter == ""
+      false
     else 
       @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") 
+      true
     end 
   end
 
