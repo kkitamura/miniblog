@@ -3,6 +3,7 @@
 require 'mysql2'
 require File.expand_path(File.dirname(__FILE__) + '/connect.rb') 
 require 'sinatra'
+require 'active_support/core_ext'
 
 class Blog < ConnectDb 
   def select_blogs 
@@ -11,12 +12,10 @@ class Blog < ConnectDb
   
 
   def insert_blog(title,body_of_letter)
-    if title==""  ||  body_of_letter == ""
-      false
-    else 
-      @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") 
-      true
-    end 
+    begin
+      @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") unless title.blank? || body_of_letter.blank? 
+    rescue => ex
+    end
   end
 
 end 

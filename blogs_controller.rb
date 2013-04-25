@@ -6,7 +6,7 @@ require 'mysql2'
 require './blog.rb'
 
 get '/' do
-  @client = Blog.new
+  @blog_contents = Blog.new
   haml :index
 end
 
@@ -40,14 +40,18 @@ __END__
       %table(border="5" rules="all")<
         %tr
           %td
+            No. 
+          %td
             id
           %td
             title 
           %td 
             body of letter
 
-        - @client.select_blogs.each do |board_infos|   
+        - @blog_contents.select_blogs.each_with_index do |board_infos,i|   
           %tr
+            %td
+              #{i+1}
             %td
               #{board_infos["id"]} 
             %td
