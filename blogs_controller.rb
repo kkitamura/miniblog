@@ -5,7 +5,6 @@ require 'haml'
 require 'mysql2'
 require './blog.rb'
 
-
 get '/' do
   @blog_contents = Blog.new
   @error_message = params[:error_message]
