@@ -13,14 +13,16 @@ get '/' do
 end
 
 post '/' do
-  "#{params[:title]}"
   blog_content = Blog.new
   redirect blog_content.insert_blog(params[:title],params[:body_of_letter])
 end
 
+get '/*' do
+  not_found
+end
 
 not_found do
-  "Whoops! You requested a route that wasn't available."
+  'ページが見つかりません！'
 end
 
 __END__
