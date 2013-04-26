@@ -5,16 +5,22 @@ require 'haml'
 require 'mysql2'
 require './blog.rb'
 
+
 get '/' do
   @blog_contents = Blog.new
+  @error_message = params[:error_message]
   haml :index
 end
 
 post '/' do
   "#{params[:title]}"
   blog_content = Blog.new
-  blog_content.insert_blog(params[:title],params[:body_of_letter])
-  redirect '/'
+  redirect blog_content.insert_blog(params[:title],params[:body_of_letter])
+end
+
+
+not_found do
+  "Whoops! You requested a route that wasn't available."
 end
 
 __END__
@@ -25,6 +31,8 @@ __END__
     %title mini-blog 
   %body
     %h1 mini blog
+    %p 
+      #{@error_message}      
     %form(action="/" method="post")<
       title
       %input(type="text" name="title" value="")

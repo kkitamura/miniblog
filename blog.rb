@@ -10,11 +10,18 @@ class Blog < ConnectDb
     @blog_articles.query("SELECT *  FROM  miniblog_contents ") 
   end 
   
-
   def insert_blog(title,body_of_letter)
     begin
-      @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')") unless title.blank? || body_of_letter.blank? 
-    rescue => ex
+      if  !title.blank? || !body_of_letter.blank?
+        @blog_articles.query("INSERT INTO miniblog_contents(title,body_of_letter) VALUES ('#{title}','#{body_of_letter}')")  
+        return '/'
+      elsif title.blank? || body_of_letter.blank?
+        raise'please_write_title_and_body_message'
+      else 
+        raise'some_error_was_occured'
+      end
+    rescue 
+      "/?error_message=#{$!}"
     end
   end
 
