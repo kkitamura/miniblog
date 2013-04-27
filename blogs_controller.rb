@@ -13,7 +13,15 @@ end
 
 post '/' do
   blog_content = Blog.new
-  redirect blog_content.insert_blog(params[:title],params[:body_of_letter])
+  begin
+    redirect blog_content.insert_blog(params[:title],params[:body_of_letter])
+  rescue => exception
+    redirect_url = "/?error_message=#{exception}" 
+  else 
+    redirect_url = '/'
+  ensure
+    redirect redirect_url
+  end
 end
 
 get '/*' do
